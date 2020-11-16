@@ -350,10 +350,15 @@ let resetAllStudents = () => {
 
 }
 let generateClass = () => {
+    let studentNumber = document.getElementById("rngStudentNumber").value;
+    if (studentNumber > desks.length || studentNumber < 1) {
+        alert("You can only generate class with 1 to " + desks.length + " students")
+        return;
+    }
     //Generates a random arrangement of x amount of students
     removeAllStudents();
     //Gets number of students from what is inputted by user
-    let studentNumber = document.getElementById("rngStudentNumber").value;
+
     studentDeskPlacedNumbers = [];
     for (let i = 0; i < studentNumber; i++) {
         let newDesk = Math.floor(Math.random() * desks.length);
